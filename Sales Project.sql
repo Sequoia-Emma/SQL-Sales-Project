@@ -1,3 +1,4 @@
+--View all tables
 Select * from Customer2
 
 Select * from Product2
@@ -71,7 +72,7 @@ where ProductPrice > (Select Round(AVG (ProductPrice), 2)
 						from Product2)
 
 
-/* How many customers have placed orders in ìCanadaî? List the customer names */
+/* How many customers have placed orders in ‚ÄúCanada‚Äù? List the customer names */
 Select *
 from Total_sales TS
 Join [Territory Lookup] TL on Ts.TerritoryKey = TL.SalesTerritoryKey
@@ -161,7 +162,7 @@ Group by ProductName
 Order by 'Number of Orders' DESC
 
 
-/* Retrieve the product names that start with the letter "C" or ìHî and are from the "Clothing" category. */
+/* Retrieve the product names that start with the letter "C" or ‚ÄúH‚Äù and are from the "Clothing" category. */
 Select *
 into Cloth_ing
 from Product2 P
@@ -173,7 +174,7 @@ Select ProductName from Cloth_ing
 Where ProductName like 'C%' or ProductName like 'H%'
 
 
-/* Retrieve the product names that have been ordered in the ëUnited Statesí or "Australia". */
+/* Retrieve the product names that have been ordered in the ‚ÄòUnited States‚Äô or "Australia". */
 Select Distinct ProductName
 from Product2 P
 join Total_sales Ts on P.ProductKey = TS.ProductKey
@@ -221,4 +222,5 @@ Order by 'Total order' DESC
 SELECT FullName, EmailAddress, [Total order]
 FROM TOP50C TT
 JOIN Customer2 C ON TT.CustomerKey = C.CustomerKey
+
 Order by 'Total order' DESC
